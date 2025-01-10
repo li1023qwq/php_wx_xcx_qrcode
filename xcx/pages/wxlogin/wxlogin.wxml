@@ -1,0 +1,35 @@
+<view class="container">
+  <view class="header">
+    <image class="logo" src="/images/logo.png" mode="aspectFit"/>
+    <text class="title">扫码登录</text>
+  </view>
+
+  <view class="content">
+    <!-- 扫码后的授权页面 -->
+    <view class="auth-box" wx:if="{{scene}}">
+      <view class="status-box">
+        <text class="status-text">{{scanStatus}}</text>
+      </view>
+      
+      <view class="button-group" wx:if="{{scanStatus === '已扫码，请点击授权登录'}}">
+        <button class="btn confirm" bindtap="loginAuth">确认登录</button>
+        <button class="btn cancel" bindtap="cancelAuth">取消登录</button>
+      </view>
+    </view>
+
+    <!-- 主扫码页面 -->
+    <view class="scan-box" wx:else bindtap="scanQRCode">
+      <view class="scan-option">
+        <view class="option-icon">
+          <image src="/images/icons/scan.png" mode="aspectFit"/>
+        </view>
+        <text class="option-text">扫一扫</text>
+        <text class="option-desc">扫描其他设备二维码登录</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <text class="tips">{{scene ? '请确认是否授权登录' : '点击扫描二维码进行登录'}}</text>
+  </view>
+</view>
