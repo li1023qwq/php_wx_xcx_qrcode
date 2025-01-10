@@ -3,9 +3,9 @@
 $config = [
     // 数据库配置
     'db_host' => 'localhost',       // 数据库服务器
-    'db_name' => 'wanye',           // 数据库名
-    'db_user' => 'wanye',           // 数据库用户名
-    'db_pass' => '123456',          // 数据库密码
+    'db_name' => 'xxx',           // 数据库名
+    'db_user' => 'xxx',           // 数据库用户名
+    'db_pass' => 'xxx',          // 数据库密码
     'db_port' => '3306',            // 数据库端口
     'db_charset' => 'utf8mb4',      // 数据库字符集
     
