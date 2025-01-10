@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微信小程序扫码登录</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">微信小程序扫码登录</h1>
+        
+        <div class="qrcode-container" style="display: none;">
+            <img id="qrcodeImage" src="" alt="二维码">
+            <div class="qrcode-mask"></div>
+        </div>
+        
+        <button id="createQrcode" class="btn">生成登录二维码</button>
+        
+        <div id="status" class="status"></div>
+    </div>
+
+    <script src="assets/js/qrcode.js"></script>
+    <script>
+        // 初始化二维码登录
+        const qrcodeLogin = new QrcodeLogin({
+            // 登录成功的回调
+            onSuccess: function(data) {
+                console.log('登录成功', data);
+                // 这里可以处理登录成功后的逻辑
+                // 例如跳转到其他页面
+                // location.href = 'success.html?token=' + data.token;
+            },
+            // 发生错误的回调
+            onError: function(error) {
+                console.error('发生错误', error);
+            },
+            // 二维码过期的回调
+            onExpired: function() {
+                console.log('二维码已过期');
+                // 可以在这里添加重新生成二维码的逻辑
+                setTimeout(() => {
+                    qrcodeLogin.reset();
+                }, 1500);
+            },
+            // 用户取消的回调
+            onCancel: function() {
+                console.log('用户取消授权');
+                // 可以在这里添加重新生成二维码的逻辑
+                setTimeout(() => {
+                    qrcodeLogin.reset();
+                }, 1500);
+            }
+        });
+    </script>
+</body>
+</html> 
