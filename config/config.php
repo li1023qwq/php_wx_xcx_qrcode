@@ -10,8 +10,8 @@ $config = [
     'db_charset' => 'utf8mb4',      // 数据库字符集
     
     // 微信小程序配置
-    'appid' => 'wx1a72e0508230ff3e',         // 小程序AppID
-    'appsecret' => 'dd2c9f8776f8babdb98966d34dfeac7c',    // 小程序AppSecret
+    'appid' => 'xxx',         // 小程序AppID
+    'appsecret' => 'xxx',    // 小程序AppSecret
     
     // 系统配置
     'qrcode_expire_time' => 300,          // 二维码有效期（秒）
